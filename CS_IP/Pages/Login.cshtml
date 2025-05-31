@@ -1,0 +1,21 @@
+@page "/Login"
+@model CS_IP.Pages.LoginModel
+@{
+    ViewData["Title"] = "Beveiligingscontrole";
+}
+
+<h2>Veiligheidscontrole</h2>
+<p>Log hieronder in om verder te gaan.</p>
+
+<form method="post">
+    <label for="username">Gebruikersnaam:</label><br />
+    <input type="text" name="Username" required /><br /><br />
+
+    <label for="password">Wachtwoord:</label><br />
+    <input type="password" name="Password" required /><br /><br />
+
+    <label for="rememberMe">Onthoud mij:</label>
+    <input type="checkbox" name="RememberMe" /><br /><br />
+    
+    <button type="submit">Inloggen</button>
+</form>
