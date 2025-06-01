@@ -8,3 +8,4 @@ obj/
 *.log
 *.dbmdl
 *.pdb
+*.code-workspace
