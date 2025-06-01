@@ -1,0 +1,43 @@
+﻿@page
+@model YourProjectNamespace.Pages.Campaign.CreateModel
+@{
+    ViewData["Title"] = "Campagne aanmaken";
+}
+
+<h2>Campagne aanmaken</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<form id="campagneForm" method="post" class="mb-3">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" required />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Recipients" class="form-label"></label>
+        <textarea asp-for="Recipients" class="form-control" rows="3" required></textarea>
+        <span asp-validation-for="Recipients" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="EmailText" class="form-label"></label>
+        <textarea asp-for="EmailText" class="form-control" rows="4" required></textarea>
+        <span asp-validation-for="EmailText" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nep-link (voor tracking):</label>
+        <div>
+            <a href="@Model.FakeLink" target="_blank">@Model.FakeLink</a>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Verstuur testmail</button>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script src="~/js/CampagneForm.js"></script>
+}

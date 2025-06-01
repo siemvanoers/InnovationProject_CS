@@ -1,0 +1,25 @@
+﻿@page
+@model ResultsModel
+@{
+    ViewData["Title"] = "Campagne resultaten";
+}
+<h2>Campagne resultaten</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Campagne</th>
+            <th>Gebruiker</th>
+            <th>Tijdstip</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model.Logs)
+        {
+            <tr>
+                <td>@log.Campaign</td>
+                <td>@log.User</td>
+                <td>@log.Timestamp.ToString("dd/MM/yyyy HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
